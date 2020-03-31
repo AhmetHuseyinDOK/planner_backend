@@ -1,0 +1,25 @@
+{
+  "name": "express_auth_api_template",
+  "version": "1.0.0",
+  "description": "a basic api with authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AhmetHuseyinDOK/express_auth_api_template.git"
+  },
+  "author": "Ahmet Huseyin Dok",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AhmetHuseyinDOK/express_auth_api_template/issues"
+  },
+  "homepage": "https://github.com/AhmetHuseyinDOK/express_auth_api_template#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-async-errors": "^3.1.1",
+    "jsonwebtoken": "^8.5.1"
+  }
+}
