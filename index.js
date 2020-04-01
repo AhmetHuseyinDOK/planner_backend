@@ -4,17 +4,18 @@ const port =  process.env.PORT || 3000;
 const host = process.env.HOST || "localhost";
 const express = require('express');
 const app =  express();
-const AuthRouter = require('./routes/auth');
-const InfoRouter = require('./routes/info');
-const ErrorHandlerMiddleware  = require('./middlewares/error').errorHandler;
-const UserService = require('./services/user');
-
+const PlanRouter = require('./routes/plan');
+const sequelize = require('./dbConnection');
+const cors = require('cors');
+require('./models');
+app.use(cors());
 app.use(express.json());
 app.get("/",(req,res) => res.send("hello world"));
-app.use(AuthRouter);
-app.use(InfoRouter);
-app.use(ErrorHandlerMiddleware);
+app.use(PlanRouter);
 
-app.listen(port,host,()=>{
-    console.log(`listening at ${host}:${port}`);
+sequelize.authenticate().then( () => {
+    console.log('connected to db');
+    app.listen(port,host,()=>{
+        console.log(`listening at ${host}:${port}`);
+    })
 })
